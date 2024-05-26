@@ -20,7 +20,7 @@ body {
     padding: 0 16px;
 }
 
-#header {
+.header {
     background-color: #f5ba13;
     color: #fff;
     margin: auto -16px;
@@ -28,7 +28,38 @@ body {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-#note {
+.addNote {
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+}
+
+.addNote input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.addNote button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #f5ba13;
+    color: white;
+    cursor: pointer;
+}
+
+.note {
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);

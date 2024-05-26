@@ -1,7 +1,15 @@
 function header() {
-  let content = document.getElementById('header');
-  content.innerHTML = '';
-  content.innerHTML += `<h1>Keeper App</h1>`;
+  let header = document.getElementById('header');
+  header.innerHTML = '';
+  header.innerHTML += `<h1>Keeper App</h1>`;
+}
+
+function addNote() {
+    let input = document.getElementById('addNote');
+    input.innerHTML = '';
+    input.innerHTML += `<input type="text" placeholder="Title">`;
+    input.innerHTML += `<input type="text" placeholder="Text">`;
+    input.innerHTML += `<button onclick="add()">Add</button>`;
 }
 
 function note() {
@@ -17,5 +25,6 @@ function note() {
 
 function render() {
     header();
+    addNote();
     note();
   }
