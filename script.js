@@ -1,3 +1,6 @@
+let titel = [];
+let text = [];
+
 // Funktion zum Erstellen des Headers
 function header() {
     let header = document.getElementById('header'); // Element mit der ID 'header' holen
@@ -7,11 +10,11 @@ function header() {
 
 // Funktion zum Erstellen der Eingabefelder und des Buttons
 function addNote() {
-    let input = document.getElementById('addNote'); // Element mit der ID 'addNote' holen
-    input.innerHTML = ''; // Inhalt des Elements löschen
-    input.innerHTML += `<input type="text" placeholder="Title">`; // Eingabefeld für den Titel hinzufügen
-    input.innerHTML += `<input type="text" placeholder="Text">`; // Eingabefeld für den Text hinzufügen
-    input.innerHTML += `<button onclick="add()">Add</button>`; // Button zum Hinzufügen einer Notiz hinzufügen
+    let addNote = document.getElementById('addNote'); // Element mit der ID 'addNote' holen
+    addNote.innerHTML = ''; // Inhalt des Elements löschen
+    addNote.innerHTML += `<input type="text" placeholder="Title" id="titel">`; // Eingabefeld für den Titel hinzufügen
+    addNote.innerHTML += `<input type="text" placeholder="Text" id="text">`; // Eingabefeld für den Text hinzufügen
+    addNote.innerHTML += `<button onclick="add()">Add</button>`; // Button zum Hinzufügen einer Notiz hinzufügen
 }
 
 // Funktion zum Erstellen einer Beispielnotiz
@@ -39,5 +42,5 @@ function render() {
     header(); // Header-Funktion aufrufen
     addNote(); // addNote-Funktion aufrufen
     note(); // note-Funktion aufrufen
-    footer();
+    footer(); // footer-Funktion aufrufen
 }
