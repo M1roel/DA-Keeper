@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keeper App</title>
+    <title>SchreibBlock</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script> <!-- 'defer' stellt sicher, dass das Skript nach dem Laden des HTML-Dokuments ausgeführt wird -->
 </head>
-<body onload="render()">
-    <div id="header" class="header"></div>
-    <div id="addNote" class="addNote"></div>
-    <div id="note" class="note"></div>
-    <div id="footer" class="footer"></div>
+<body>
+    <div id="header" class="header"></div> <!-- Header-Container -->
+    <div id="addNote" class="addNote"></div> <!-- Container für Eingabefelder und Button -->
+    <div id="noteContainer" class="noteContainer"></div> <!-- Container für Notizen -->
+    <div id="footer" class="footer"></div> <!-- Footer-Container -->
 </body>
 </html>
