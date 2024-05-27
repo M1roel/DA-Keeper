@@ -86,7 +86,7 @@ function bin() {
   let binElement = document.getElementById("bin"); // Element mit der ID 'bin' holen
   binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
 
-  let delNotesContainer = document.getElementById("delNotesContainer"); // Element mit der ID 'delNotesContainer' holen
+  let delNotesContainer = document.getElementById("delNotesContainer"); // Element mit der ID 'notesContainer' holen
   delNotesContainer.innerHTML = ""; // Inhalt des Elements löschen
 
   for (let i = 0; i < tempDeleteTitles.length; i++) {
