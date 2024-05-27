@@ -1,3 +1,6 @@
+// ===================================================
+// Abschnitt: Variablendeklaration und Initialisierung
+// ===================================================
 let titles = []; // Array für Titel initialisieren
 let contents = []; // Array für Inhalte initialisieren
 let tempDeleteTitles = [];
@@ -5,27 +8,9 @@ let tempDeleteContents = [];
 load(); // Lade gespeicherte Daten aus dem lokalen Speicher
 loadDel(); // Lade gelöschte Notizen aus dem lokalen Speicher
 
-// Funktion zum Erstellen des Headers
-function header() {
-  let headerElement = document.getElementById("header"); // Element mit der ID 'header' holen
-  headerElement.innerHTML = ""; // Inhalt des Headers löschen
-  headerElement.innerHTML += `<h1>SchreibBlock</h1>`; // Neues HTML-Element (H1) zum Header hinzufügen
-}
-
-// Funktion zum Speichern der Notizen im lokalen Speicher
-function save() {
-  let titlesAsText = JSON.stringify(titles); // Array 'titles' in JSON-String umwandeln
-  let contentsAsText = JSON.stringify(contents); // Array 'contents' in JSON-String umwandeln
-  localStorage.setItem("titles", titlesAsText); // JSON-String im lokalen Speicher speichern
-  localStorage.setItem("contents", contentsAsText); // JSON-String im lokalen Speicher speichern
-}
-
-function saveDel() {
-  let titlesAsText = JSON.stringify(tempDeleteTitles); // Array 'tempDeleteTitles' in JSON-String umwandeln
-  let contentsAsText = JSON.stringify(tempDeleteContents); // Array 'tempDeleteContents' in JSON-String umwandeln
-  localStorage.setItem("tempDeleteTitles", titlesAsText); // JSON-String im lokalen Speicher speichern
-  localStorage.setItem("tempDeleteContents", contentsAsText); // JSON-String im lokalen Speicher speichern
-}
+// ===========================================
+// Abschnitt: Funktionen zur Datenverarbeitung
+// ===========================================
 
 // Funktion zum Laden der Notizen aus dem lokalen Speicher
 function load() {
@@ -38,6 +23,7 @@ function load() {
   }
 }
 
+
 // Funktion zum Laden der gelöschten Notizen aus dem lokalen Speicher
 function loadDel() {
   let tempTitlesAsText = localStorage.getItem("tempDeleteTitles"); // JSON-String für 'tempDeleteTitles' aus dem lokalen Speicher holen
@@ -49,45 +35,22 @@ function loadDel() {
   }
 }
 
-// Funktion zum Erstellen der Eingabefelder und des Buttons
-function addNote() {
-  let noteTitleInput = document.getElementById("noteTitle"); // Eingabefeld für Titel holen
-  let noteContentInput = document.getElementById("noteContent"); // Eingabefeld für Inhalt holen
-  titles.push(noteTitleInput.value); // Neuen Titel zum Array hinzufügen
-  contents.push(noteContentInput.value); // Neuen Inhalt zum Array hinzufügen
-  displayNotes(); // Funktion 'displayNotes' aufrufen, um die Notizen anzuzeigen
-  save(); // Funktion 'save' aufrufen, um die neuen Daten zu speichern
+
+// Funktion zum Speichern der Notizen im lokalen Speicher
+function save() {
+  let titlesAsText = JSON.stringify(titles); // Array 'titles' in JSON-String umwandeln
+  let contentsAsText = JSON.stringify(contents); // Array 'contents' in JSON-String umwandeln
+  localStorage.setItem("titles", titlesAsText); // JSON-String im lokalen Speicher speichern
+  localStorage.setItem("contents", contentsAsText); // JSON-String im lokalen Speicher speichern
 }
 
-// Funktion zum Löschen einer Notiz
-function deleteNoteTemp(i) {
-  tempDeleteTitles.push(titles[i]); // Den Titel an der Position 'i' zum tempDeleteTitles-Array hinzufügen
-  tempDeleteContents.push(contents[i]); // Den Inhalt an der Position 'i' zum tempDeleteContents-Array hinzufügen
-  titles.splice(i, 1); // Titel an der Position 'i' aus dem Array entfernen
-  contents.splice(i, 1); // Inhalt an der Position 'i' aus dem Array entfernen
-  displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
-  save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
-  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
-  bin();
-}
 
-// Funktion zum endgültigen Löschen einer Notiz aus dem Papierkorb
-function deleteNotePerm(i) {
-  tempDeleteTitles.splice(i, 1); // Den Titel an der Position 'i' aus dem Array entfernen
-  tempDeleteContents.splice(i, 1); // Den Inhalt an der Position 'i' aus dem Array entfernen
-  bin(); // Funktion 'bin' aufrufen, um den Papierkorb zu aktualisieren
-  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
-}
-
-function restore(i) {
-  titles.push(tempDeleteTitles[i]);
-  contents.push(tempDeleteContents[i]);
-  tempDeleteTitles.splice(i, 1); // Den Titel an der Position 'i' aus dem Array entfernen
-  tempDeleteContents.splice(i, 1); // Den Inhalt an der Position 'i' aus dem Array entfernen
-  displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
-  save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
-  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
-  bin();
+// Funktion zum speichern der gelöschten Notizen im lokalen Speicher
+function saveDel() {
+  let titlesAsText = JSON.stringify(tempDeleteTitles); // Array 'tempDeleteTitles' in JSON-String umwandeln
+  let contentsAsText = JSON.stringify(tempDeleteContents); // Array 'tempDeleteContents' in JSON-String umwandeln
+  localStorage.setItem("tempDeleteTitles", titlesAsText); // JSON-String im lokalen Speicher speichern
+  localStorage.setItem("tempDeleteContents", contentsAsText); // JSON-String im lokalen Speicher speichern
 }
 
 // Funktion zum Anzeigen der Notizen
@@ -115,6 +78,8 @@ function displayNotes() {
   }
 }
 
+
+// Funktion um Notizen dem Papierkorb hinzuzufügen
 function bin() {
   console.log("bin function called"); // Debugging
   let binElement = document.getElementById("bin");
@@ -140,6 +105,67 @@ function bin() {
   }
 }
 
+// =============================================
+// Abschnitt: Funktionen zur Benutzerinteraktion
+// =============================================
+
+// Funktion zum Erstellen der Eingabefelder und des Buttons
+function addNote() {
+  let noteTitleInput = document.getElementById("noteTitle"); // Eingabefeld für Titel holen
+  let noteContentInput = document.getElementById("noteContent"); // Eingabefeld für Inhalt holen
+  titles.push(noteTitleInput.value); // Neuen Titel zum Array hinzufügen
+  contents.push(noteContentInput.value); // Neuen Inhalt zum Array hinzufügen
+  displayNotes(); // Funktion 'displayNotes' aufrufen, um die Notizen anzuzeigen
+  save(); // Funktion 'save' aufrufen, um die neuen Daten zu speichern
+}
+
+
+// Funktion zum Löschen einer Notiz
+function deleteNoteTemp(i) {
+  tempDeleteTitles.push(titles[i]); // Den Titel an der Position 'i' zum tempDeleteTitles-Array hinzufügen
+  tempDeleteContents.push(contents[i]); // Den Inhalt an der Position 'i' zum tempDeleteContents-Array hinzufügen
+  titles.splice(i, 1); // Titel an der Position 'i' aus dem Array entfernen
+  contents.splice(i, 1); // Inhalt an der Position 'i' aus dem Array entfernen
+  displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
+  save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
+  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
+  bin(); // Funktion 'bin' aufrufen, um die aktualisierten Daten zu speichern
+}
+
+
+// Funktion zum endgültigen Löschen einer Notiz aus dem Papierkorb
+function deleteNotePerm(i) {
+  tempDeleteTitles.splice(i, 1); // Den Titel an der Position 'i' aus dem Array entfernen
+  tempDeleteContents.splice(i, 1); // Den Inhalt an der Position 'i' aus dem Array entfernen
+  bin(); // Funktion 'bin' aufrufen, um den Papierkorb zu aktualisieren
+  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
+}
+
+
+// Funktion um Notiz aus dem Papierkorb wiederherzustellen
+function restore(i) {
+  titles.push(tempDeleteTitles[i]);
+  contents.push(tempDeleteContents[i]);
+  tempDeleteTitles.splice(i, 1); // Den Titel an der Position 'i' aus dem Array entfernen
+  tempDeleteContents.splice(i, 1); // Den Inhalt an der Position 'i' aus dem Array entfernen
+  displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
+  save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
+  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
+  bin(); // Funktion 'bin' aufrufen, um die aktualisierten Daten zu speichern
+}
+
+// ===========================================
+// Abschnitt: Funktionen zum Rendern der Seite
+// ===========================================
+
+// Funktion zum Erstellen des Headers
+function header() {
+  let headerElement = document.getElementById("header"); // Element mit der ID 'header' holen
+  headerElement.innerHTML = ""; // Inhalt des Headers löschen
+  headerElement.innerHTML += `<h1>SchreibBlock</h1>`; // Neues HTML-Element (H1) zum Header hinzufügen
+}
+
+
 // Funktion zum Erstellen des Footers mit dem aktuellen Jahr
 function footer() {
   let footerElement = document.getElementById("footer"); // Element mit der ID 'footer' holen
@@ -147,6 +173,7 @@ function footer() {
   footerElement.innerHTML = ""; // Inhalt des Footers löschen
   footerElement.innerHTML += `<p>&copy; Copyright ${currentYear}</p>`; // Copyright-Text mit aktuellem Jahr hinzufügen
 }
+
 
 // Funktion zum Rendern der Seite
 function render() {
@@ -157,6 +184,10 @@ function render() {
   bin(); // Papierkorb anzeigen
   footer(); // footer-Funktion aufrufen
 }
+
+// ===========================
+// Abschnitt: Initiale Aufrufe
+// ===========================
 
 // Initiale Aufrufe
 document.addEventListener("DOMContentLoaded", (event) => {
