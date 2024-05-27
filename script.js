@@ -1,7 +1,7 @@
-let titles = ["Wichtig"]; // Array für Titel initialisieren
-let contents = ["Einkaufen"]; // Array für Inhalte initialisieren
-let tempDeleteTitles = [""];
-let tempDeleteContents = [""];
+let titles = []; // Array für Titel initialisieren
+let contents = []; // Array für Inhalte initialisieren
+let tempDeleteTitles = [];
+let tempDeleteContents = [];
 load(); // Lade gespeicherte Daten aus dem lokalen Speicher
 
 // Funktion zum Erstellen des Headers
@@ -84,9 +84,9 @@ function displayNotes() {
 
 function bin() {
   let binElement = document.getElementById("bin"); // Element mit der ID 'bin' holen
-  binElement.innerHTML = ""; // Inhalt des Footers löschen
+  binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
 
-  let delNotesContainer = document.getElementById("delNotesContainer"); // Element mit der ID 'notesContainer' holen
+  let delNotesContainer = document.getElementById("delNotesContainer"); // Element mit der ID 'delNotesContainer' holen
   delNotesContainer.innerHTML = ""; // Inhalt des Elements löschen
 
   for (let i = 0; i < tempDeleteTitles.length; i++) {
