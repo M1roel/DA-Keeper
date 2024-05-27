@@ -1,5 +1,7 @@
 let titles = ["Wichtig"]; // Array für Titel initialisieren
 let contents = ["Einkaufen"]; // Array für Inhalte initialisieren
+let tempDeleteTitles = [""];
+let tempDeleteContents = [""];
 load(); // Lade gespeicherte Daten aus dem lokalen Speicher
 
 // Funktion zum Erstellen des Headers
@@ -39,11 +41,20 @@ function addNote() {
 }
 
 // Funktion zum Löschen einer Notiz
-function deleteNote(i) {
+function deleteNoteTemp(i) {
+  tempDeleteTitles.push(titles[i]); // Den Titel an der Position 'i' zum tempDeleteTitles-Array hinzufügen
+  tempDeleteContents.push(contents[i]); // Den Inhalt an der Position 'i' zum tempDeleteContents-Array hinzufügen
   titles.splice(i, 1); // Titel an der Position 'i' aus dem Array entfernen
   contents.splice(i, 1); // Inhalt an der Position 'i' aus dem Array entfernen
   displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
   save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
+}
+
+function deleteNotePerm(i) {
+  tempDeleteTitles.splice(i, 1);
+  tempDeleteContents.splice(i, 1);
+  displayNotes();
+  save();
 }
 
 // Funktion zum Anzeigen der Notizen
@@ -65,9 +76,29 @@ function displayNotes() {
             <div class="note">
                 <b class="note-title">${noteTitle}</b><br>
                 <span class="note-content">${noteContent}</span>
-                <button class="button" onclick="deleteNote(${i})">x</button>
+                <button class="button" onclick="deleteNoteTemp(${i})">x</button>
             </div>
         `; // Notiz zum Container hinzufügen
+  }
+}
+
+function bin() {
+  let binElement = document.getElementById("bin"); // Element mit der ID 'bin' holen
+  binElement.innerHTML = ""; // Inhalt des Footers löschen
+
+  let delNotesContainer = document.getElementById("delNotesContainer"); // Element mit der ID 'notesContainer' holen
+  delNotesContainer.innerHTML = ""; // Inhalt des Elements löschen
+
+  for (let i = 0; i < tempDeleteTitles.length; i++) {
+    const tempDelTitle = tempDeleteTitles[i];
+    const tempDelContent = tempDeleteContents[i];
+    delNotesContainer.innerHTML += `
+            <div class="note">
+                <b class="note-title">${tempDelTitle}</b><br>
+                <span class="note-content">${tempDelContent}</span>
+                <button class="button" onclick="deleteNotePerm(${i})">x</button>
+            </div>
+    `;
   }
 }
 

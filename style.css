@@ -37,13 +37,13 @@ body {
   background: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  margin-top: 20px;
+  margin: 16px;
   padding: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  width: 200px;
+  width: 300px;
   height: 200px;
 }
 
@@ -99,6 +99,17 @@ button {
   white-space: pre-wrap;
   word-wrap: break-word;
   font-weight: 100;
+}
+
+.bin {
+  display: flex;
+  background-color: #eee;
+  color: #fff;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  position: fixed; /* Container fixieren */
+  bottom: 70px; /* Vertikale Positionierung anpassen */
+  right: 16px; /* Horizontale Positionierung anpassen */
 }
 
 .footer {
