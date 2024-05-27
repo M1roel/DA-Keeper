@@ -113,13 +113,24 @@ button {
   left: 0;
 }
 
+.bin-note {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+}
+
 .bin-title {
+  color: black;
   font-size: 24px;
   margin-bottom: 6px;
   font-weight: 900;
 }
 
 .bin-content {
+  color: black;
   font-size: 18px;
   margin-bottom: 10px;
   white-space: pre-wrap;
