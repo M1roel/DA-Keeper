@@ -49,9 +49,18 @@ body {
 
 .addNote input {
   margin: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border: none;
   padding: 10px;
-  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.addNote textarea {
+  font-family: "Roboto";
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  resize: none;
   border-radius: 3px;
   width: 100%;
 }

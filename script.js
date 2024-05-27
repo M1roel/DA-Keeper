@@ -50,8 +50,8 @@ function deleteNote(i) {
 function displayNotes() {
   let addNoteElement = document.getElementById("addNote"); // Element mit der ID 'addNote' holen
   addNoteElement.innerHTML = ""; // Inhalt des Elements löschen
-  addNoteElement.innerHTML += `<input type="text" placeholder="Title" id="noteTitle">`; // Eingabefeld für den Titel hinzufügen
-  addNoteElement.innerHTML += `<input type="text" placeholder="Content" id="noteContent">`; // Eingabefeld für den Inhalt hinzufügen
+  addNoteElement.innerHTML += `<input type="text" placeholder="Titel..." id="noteTitle">`; // Eingabefeld für den Titel hinzufügen
+  addNoteElement.innerHTML += `<textarea placeholder="Notiz..." id="noteContent"></textarea>`; // Eingabefeld für den Inhalt hinzufügen
   addNoteElement.innerHTML += `<button onclick="addNote()">Add</button>`; // Button zum Hinzufügen einer Notiz hinzufügen
 
   let notesContainer = document.getElementById("notesContainer"); // Element mit der ID 'notesContainer' holen
