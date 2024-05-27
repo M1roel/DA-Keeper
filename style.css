@@ -105,11 +105,26 @@ button {
   display: flex;
   background-color: #eee;
   color: #fff;
-  padding: 16px 32px;
+  padding: 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   position: fixed; /* Container fixieren */
   bottom: 70px; /* Vertikale Positionierung anpassen */
-  right: 16px; /* Horizontale Positionierung anpassen */
+  right: 0;
+  left: 0;
+}
+
+.bin-title {
+  font-size: 24px;
+  margin-bottom: 6px;
+  font-weight: 900;
+}
+
+.bin-content {
+  font-size: 18px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: 100;
 }
 
 .footer {

@@ -19,6 +19,13 @@ function save() {
   localStorage.setItem("contents", contentsAsText); // JSON-String im lokalen Speicher speichern
 }
 
+function saveDel() {
+  let titlesAsText = JSON.stringify(tempDeleteTitles); // Array 'tempDeleteTitles' in JSON-String umwandeln
+  let contentsAsText = JSON.stringify(tempDeleteContents); // Array 'tempDeleteContents' in JSON-String umwandeln
+  localStorage.setItem("tempDeleteTitles", titlesAsText); // JSON-String im lokalen Speicher speichern
+  localStorage.setItem("tempDeleteContents", contentsAsText); // JSON-String im lokalen Speicher speichern
+}
+
 // Funktion zum Laden der Notizen aus dem lokalen Speicher
 function load() {
   let titlesAsText = localStorage.getItem("titles"); // JSON-String für 'titles' aus lokalem Speicher holen
@@ -48,6 +55,7 @@ function deleteNoteTemp(i) {
   contents.splice(i, 1); // Inhalt an der Position 'i' aus dem Array entfernen
   displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
   save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
+  saveDel();
 }
 
 function deleteNotePerm(i) {
@@ -94,8 +102,8 @@ function bin() {
     const tempDelContent = tempDeleteContents[i];
     delNotesContainer.innerHTML += `
             <div class="note">
-                <b class="note-title">${tempDelTitle}</b><br>
-                <span class="note-content">${tempDelContent}</span>
+                <b class="bin-title">${tempDelTitle}</b><br>
+                <span class="bin-content">${tempDelContent}</span>
                 <button class="button" onclick="deleteNotePerm(${i})">x</button>
             </div>
     `;
