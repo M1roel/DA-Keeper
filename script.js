@@ -54,6 +54,7 @@ function saveDel() {
   localStorage.setItem("tempDeleteContents", contentsAsText); // JSON-String im lokalen Speicher speichern
 }
 
+
 // Funktion zum Anzeigen der Notizen
 function displayNotes() {
   let addNoteElement = document.getElementById("addNote"); // Element mit der ID 'addNote' holen
