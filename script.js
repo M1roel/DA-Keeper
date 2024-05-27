@@ -65,8 +65,6 @@ function deleteNoteTemp(i) {
   tempDeleteContents.push(contents[i]); // Den Inhalt an der Position 'i' zum tempDeleteContents-Array hinzufügen
   titles.splice(i, 1); // Titel an der Position 'i' aus dem Array entfernen
   contents.splice(i, 1); // Inhalt an der Position 'i' aus dem Array entfernen
-  console.log("tempDeleteTitles:", tempDeleteTitles); // Debugging
-  console.log("tempDeleteContents:", tempDeleteContents); // Debugging
   displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
   save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
   saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
