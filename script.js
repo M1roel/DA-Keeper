@@ -1,10 +1,11 @@
 // ===================================================
 // Abschnitt: Variablendeklaration und Initialisierung
 // ===================================================
+
 let titles = []; // Array für Titel initialisieren
 let contents = []; // Array für Inhalte initialisieren
-let tempDeleteTitles = [];
-let tempDeleteContents = [];
+let tempDeleteTitles = []; // Array für Titel im Papierkorb initialisieren
+let tempDeleteContents = []; // Array für Inhalte im Papierkorb initialisieren
 load(); // Lade gespeicherte Daten aus dem lokalen Speicher
 loadDel(); // Lade gelöschte Notizen aus dem lokalen Speicher
 
