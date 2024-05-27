@@ -79,6 +79,17 @@ function deleteNotePerm(i) {
   saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
 }
 
+function restore(i) {
+  titles.push(tempDeleteTitles[i]);
+  contents.push(tempDeleteContents[i]);
+  tempDeleteTitles.splice(i, 1); // Den Titel an der Position 'i' aus dem Array entfernen
+  tempDeleteContents.splice(i, 1); // Den Inhalt an der Position 'i' aus dem Array entfernen
+  displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
+  save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
+  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
+  bin();
+}
+
 // Funktion zum Anzeigen der Notizen
 function displayNotes() {
   let addNoteElement = document.getElementById("addNote"); // Element mit der ID 'addNote' holen
@@ -122,7 +133,8 @@ function bin() {
               <div class="note">
                   <b class="bin-title">${tempDelTitle}</b><br>
                   <span class="bin-content">${tempDelContent}</span>
-                  <button class="button" onclick="deleteNotePerm(${i})">x</button>
+                  <button class="button" onclick="deleteNotePerm(${i})">Delete</button>
+                  <button class="button" onclick="restore(${i})">Restore</button>
               </div>
       `;
   }
