@@ -35,6 +35,13 @@ function addNote() {
     save(); // Funktion 'save' aufrufen, um die neuen Daten zu speichern
 }
 
+function deleteNote(i) {
+    titles.splice(i, 1);
+    contents.splice(i, 1);
+    displayNotes();
+    save();
+}
+
 // Funktion zum Erstellen einer Beispielnotiz
 function displayNotes() {
     let addNoteElement = document.getElementById('addNote'); // Element mit der ID 'addNote' holen
@@ -53,6 +60,7 @@ function displayNotes() {
             <div class="note">
                 <b class="note-title">${noteTitle}</b><br>
                 <span class="note-content">${noteContent}</span>
+                <button class="button" onclick="deleteNote(${i})">x</button>
             </div>
         `; // Notiz zum Container hinzufügen
     }
