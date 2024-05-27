@@ -107,8 +107,8 @@ button {
   color: #fff;
   padding: 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  position: fixed; /* Container fixieren */
-  bottom: 70px; /* Vertikale Positionierung anpassen */
+  position: fixed;
+  bottom: 70px;
   right: 0;
   left: 0;
 }
@@ -142,8 +142,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px; /* Höhe des Footers */
-  background-color: #f5ba13; /* Hintergrundfarbe des Footers */
+  height: 50px;
+  background-color: #f5ba13;
   width: 100%;
   position: fixed;
   bottom: 0;

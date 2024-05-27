@@ -3,7 +3,7 @@ let contents = []; // Array für Inhalte initialisieren
 let tempDeleteTitles = [];
 let tempDeleteContents = [];
 load(); // Lade gespeicherte Daten aus dem lokalen Speicher
-loadDel();
+loadDel(); // Lade gelöschte Notizen aus dem lokalen Speicher
 
 // Funktion zum Erstellen des Headers
 function header() {
@@ -38,15 +38,16 @@ function load() {
   }
 }
 
+// Funktion zum Laden der gelöschten Notizen aus dem lokalen Speicher
 function loadDel() {
-    let tempTitlesAsText = localStorage.getItem("tempDeleteTitles");
-    let tempContentsAsText = localStorage.getItem("tempDeleteContents");
-    if (tempTitlesAsText && tempContentsAsText) {
-      tempDeleteTitles = JSON.parse(tempTitlesAsText);
-      tempDeleteContents = JSON.parse(tempContentsAsText);
-    }
-  } 
-
+  let tempTitlesAsText = localStorage.getItem("tempDeleteTitles"); // JSON-String für 'tempDeleteTitles' aus dem lokalen Speicher holen
+  let tempContentsAsText = localStorage.getItem("tempDeleteContents"); // JSON-String für 'tempDeleteContents' aus dem lokalen Speicher holen
+  if (tempTitlesAsText && tempContentsAsText) {
+    // Überprüfen, ob Daten im lokalen Speicher vorhanden sind
+    tempDeleteTitles = JSON.parse(tempTitlesAsText); // JSON-String zurück in Array umwandeln
+    tempDeleteContents = JSON.parse(tempContentsAsText); // JSON-String zurück in Array umwandeln
+  }
+}
 
 // Funktion zum Erstellen der Eingabefelder und des Buttons
 function addNote() {
@@ -72,11 +73,12 @@ function deleteNoteTemp(i) {
   bin();
 }
 
+// Funktion zum endgültigen Löschen einer Notiz aus dem Papierkorb
 function deleteNotePerm(i) {
-  tempDeleteTitles.splice(i, 1);
-  tempDeleteContents.splice(i, 1);
-  bin();
-  saveDel();
+  tempDeleteTitles.splice(i, 1); // Den Titel an der Position 'i' aus dem Array entfernen
+  tempDeleteContents.splice(i, 1); // Den Inhalt an der Position 'i' aus dem Array entfernen
+  bin(); // Funktion 'bin' aufrufen, um den Papierkorb zu aktualisieren
+  saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
 }
 
 // Funktion zum Anzeigen der Notizen
@@ -105,30 +107,28 @@ function displayNotes() {
 }
 
 function bin() {
-    console.log('bin function called'); // Debugging
-    let binElement = document.getElementById("bin");
-    binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
-  
-    // Erstellen eines neuen delNotesContainer innerhalb des bin Containers
-    let delNotesContainer = document.createElement("div");
-    delNotesContainer.id = "delNotesContainer";
-    delNotesContainer.className = "delNotesContainer";
-    binElement.appendChild(delNotesContainer); // delNotesContainer zum bin hinzufügen
-  
-    for (let i = 0; i < tempDeleteTitles.length; i++) {
-      const tempDelTitle = tempDeleteTitles[i];
-      const tempDelContent = tempDeleteContents[i];
-      delNotesContainer.innerHTML += `
+  console.log("bin function called"); // Debugging
+  let binElement = document.getElementById("bin");
+  binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
+
+  // Erstellen eines neuen delNotesContainer innerhalb des bin Containers
+  let delNotesContainer = document.createElement("div");
+  delNotesContainer.id = "delNotesContainer";
+  delNotesContainer.className = "delNotesContainer";
+  binElement.appendChild(delNotesContainer); // delNotesContainer zum bin hinzufügen
+
+  for (let i = 0; i < tempDeleteTitles.length; i++) {
+    const tempDelTitle = tempDeleteTitles[i];
+    const tempDelContent = tempDeleteContents[i];
+    delNotesContainer.innerHTML += `
               <div class="note">
                   <b class="bin-title">${tempDelTitle}</b><br>
                   <span class="bin-content">${tempDelContent}</span>
                   <button class="button" onclick="deleteNotePerm(${i})">x</button>
               </div>
       `;
-    }
   }
-  
-  
+}
 
 // Funktion zum Erstellen des Footers mit dem aktuellen Jahr
 function footer() {
@@ -140,12 +140,13 @@ function footer() {
 
 // Funktion zum Rendern der Seite
 function render() {
-    header(); // Header-Funktion aufrufen
-    displayNotes(); // displayNotes-Funktion aufrufen
-    loadDel(); // Gelöschte Notizen laden
-    bin(); // Papierkorb anzeigen
-    footer(); // footer-Funktion aufrufen
-  }
+  header(); // Header-Funktion aufrufen
+  load(); // Notizen laden
+  loadDel(); // Gelöschte Notizen laden
+  displayNotes(); // displayNotes-Funktion aufrufen
+  bin(); // Papierkorb anzeigen
+  footer(); // footer-Funktion aufrufen
+}
 
 // Initiale Aufrufe
 document.addEventListener("DOMContentLoaded", (event) => {
