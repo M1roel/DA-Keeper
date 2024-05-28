@@ -164,7 +164,7 @@ function restore(i) {
 function header() {
   let headerElement = document.getElementById("header"); // Element mit der ID 'header' holen
   headerElement.innerHTML = ""; // Inhalt des Headers löschen
-  headerElement.innerHTML += `<h1>SchreibBlock</h1>`; // Neues HTML-Element (H1) zum Header hinzufügen
+  headerElement.innerHTML += `<h1>NotizBlock</h1>`; // Neues HTML-Element (H1) zum Header hinzufügen
 }
 
 
