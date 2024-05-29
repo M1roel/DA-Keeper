@@ -164,7 +164,7 @@ function restore(i) {
 function header() {
   let headerElement = document.getElementById("header"); // Element mit der ID 'header' holen
   headerElement.innerHTML = ""; // Inhalt des Headers löschen
-  headerElement.innerHTML += `<h1>NotizBlock</h1>`; // Neues HTML-Element (H1) zum Header hinzufügen
+  headerElement.innerHTML += ``; // Neues HTML-Element (H1) zum Header hinzufügen
 }
 
 
@@ -179,7 +179,6 @@ function footer() {
 
 // Funktion zum Rendern der Seite
 function render() {
-  header(); // Header-Funktion aufrufen
   load(); // Notizen laden
   loadDel(); // Gelöschte Notizen laden
   displayNotes(); // displayNotes-Funktion aufrufen
