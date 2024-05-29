@@ -78,28 +78,25 @@ function displayNotes() {
 // Funktion um Notizen dem Papierkorb hinzuzufügen
 function bin() {
   console.log("bin function called"); // Debugging
-  let binElement = document.getElementById("bin");
+  const binElement = document.getElementById("bin");
   binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
 
   // Erstellen eines neuen delNotesContainer innerhalb des bin Containers
-  let delNotesContainer = document.createElement("div");
+  const delNotesContainer = document.createElement("div");
   delNotesContainer.id = "delNotesContainer";
   delNotesContainer.className = "delNotesContainer";
   binElement.appendChild(delNotesContainer); // delNotesContainer zum bin hinzufügen
 
-  for (let i = 0; i < tempDeleteTitles.length; i++) {
-    const tempDelTitle = tempDeleteTitles[i];
-    const tempDelContent = tempDeleteContents[i];
-    delNotesContainer.innerHTML += `
-              <div class="note">
-                  <b class="bin-title">${tempDelTitle}</b><br>
-                  <span class="bin-content">${tempDelContent}</span>
-                  <button class="button" onclick="deleteNotePerm(${i})">Delete</button>
-                  <button class="button" onclick="restore(${i})">Restore</button>
-              </div>
-      `;
-  }
+  delNotesContainer.innerHTML = tempDeleteTitles.map((title, i) => `
+    <div class="note">
+      <b class="bin-title">${title}</b><br>
+      <span class="bin-content">${tempDeleteContents[i]}</span>
+      <button class="button" onclick="deleteNotePerm(${i})">Delete</button>
+      <button class="button" onclick="restore(${i})">Restore</button>
+    </div>
+  `).join('');
 }
+
 
 // =============================================
 // Abschnitt: Funktionen zur Benutzerinteraktion
