@@ -98,12 +98,12 @@ function bin() {
 }
 
 
-// Funktion zum Anzeigen eines Hinweises, wenn leere Notiz erstellt wird
+// Funktion zum Anzeigen eines Hinweises, wenn eine leere Notiz erstellt wird
 function showWarning(message) {
-  const noteWarning = document.getElementById("noteWarning");
-  noteWarning.textContent = message;
-  noteWarning.style.display = 'block';
-  setTimeout(() => noteWarning.style.display = 'none', 1500);
+  const noteWarning = document.getElementById("noteWarning"); // Element mit der ID 'noteWarning' holen
+  noteWarning.textContent = message; // Hinweistext setzen
+  noteWarning.style.display = 'block'; // Hinweis anzeigen
+  setTimeout(() => noteWarning.style.display = 'none', 1500); // Hinweis nach 1500ms ausblenden
 }
 
 
@@ -119,22 +119,24 @@ function isNoteEmpty(title, content) {
 
 // Funktion zum Erstellen einer Notiz
 function addNote() {
-  const noteTitleInput = document.getElementById("noteTitle");
-  const noteContentInput = document.getElementById("noteContent");
+  const noteTitleInput = document.getElementById("noteTitle"); // Eingabefeld für den Titel holen
+  const noteContentInput = document.getElementById("noteContent"); // Eingabefeld für den Inhalt holen
 
-  const trimmedTitle = noteTitleInput.value.trim();
-  const trimmedContent = noteContentInput.value.trim();
+  const trimmedTitle = noteTitleInput.value.trim(); // Eingabewert für den Titel trimmen
+  const trimmedContent = noteContentInput.value.trim(); // Eingabewert für den Inhalt trimmen
 
   if (!trimmedTitle || !trimmedContent) {
-    showWarning("Bitte eine Notiz eintragen.");
+    // Überprüfen, ob der Titel oder der Inhalt leer ist
+    showWarning("Bitte eine Notiz eintragen."); // Warnung anzeigen, wenn eine leere Notiz erstellt wird
     return;
   }
 
-  titles.push(trimmedTitle);
-  contents.push(trimmedContent);
-  displayNotes();
-  save();
+  titles.push(trimmedTitle); // Titel zum Array 'titles' hinzufügen
+  contents.push(trimmedContent); // Inhalt zum Array 'contents' hinzufügen
+  displayNotes(); // Funktion 'displayNotes' aufrufen, um die aktualisierten Notizen anzuzeigen
+  save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
 }
+
 
 
 // Funktion zum Löschen einer Notiz
@@ -175,20 +177,21 @@ function restore(i) {
 // Funktion zum Anzeigen des Papierkorbinhalts
 function showBin() {
   if(tempDeleteTitles.length > 0) {
-  const binElement = document.getElementById('bincontainer');
-  binElement.classList.remove('d-none');
+    // Überprüfen, ob der Papierkorb nicht leer ist
+    const binElement = document.getElementById('bincontainer'); // Element mit der ID 'bincontainer' holen
+    binElement.classList.remove('d-none'); // Klasse 'd-none' entfernen, um den Papierkorb anzuzeigen
   } else {
-    showWarning("Papierkorb ist leer.");
+    showWarning("Papierkorb ist leer."); // Warnung anzeigen, wenn der Papierkorb leer ist
     return;
   }
 }
 
-
 // Funktion zum Ausblenden des Papierkorbinhalts
 function hideBin() {
-  const binElement = document.getElementById('bincontainer');
-  binElement.classList.add('d-none');
+  const binElement = document.getElementById('bincontainer'); // Element mit der ID 'bincontainer' holen
+  binElement.classList.add('d-none'); // Klasse 'd-none' hinzufügen, um den Papierkorb auszublenden
 }
+
 
 // ===========================================
 // Abschnitt: Funktionen zum Rendern der Seite
