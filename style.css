@@ -85,6 +85,7 @@ button {
   flex-wrap: wrap;
   width: auto;
   height: auto;
+  margin-bottom: 80px;
 }
 
 .note {
@@ -137,7 +138,7 @@ button {
   background-color: rgba(0, 0, 0, 0.5);
   width: auto;
   height: auto;
-  position: fixed;
+  position: absolute;
   margin: 32px;
   top: 80px;
 }
@@ -152,6 +153,7 @@ button {
   color: #fff;
   padding: 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 80px;
 }
 
 .bin-note {
@@ -227,4 +229,7 @@ button {
     margin-right: 8px;
   }
 
+  .delNotesContainer {
+    padding: 0;
+  }
 }
