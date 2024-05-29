@@ -43,7 +43,8 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  width: 300px;
+  flex-wrap: wrap;
+  max-width: 300px;
   height: 200px;
 }
 
@@ -75,6 +76,15 @@ button {
   background-color: #f5ba13;
   color: white;
   cursor: pointer;
+}
+
+.notesContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: auto;
+  height: auto;
 }
 
 .note {
@@ -128,13 +138,15 @@ button {
   width: auto;
   height: auto;
   position: fixed;
+  margin: 32px;
+  top: 80px;
 }
-
 
 .delNotesContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   z-index: 998;
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
@@ -191,4 +203,28 @@ button {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+}
+
+@media (max-width: 400px) {
+  .note-title {
+    font-size: 20px;
+  }
+  
+  .note-content {
+    font-size: 14px;
+  }
+
+  .bin-title {
+    font-size: 20px;
+  }
+  
+  .bin-content {
+    font-size: 14px;
+  }
+
+  .bincontainer {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
 }
