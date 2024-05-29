@@ -98,18 +98,42 @@ function bin() {
 }
 
 
+// Funktion zum Anzeigen eines Hinweises, wenn leere Notiz erstellt wird
+function showWarning(message) {
+  const noteWarning = document.getElementById("noteWarning");
+  noteWarning.textContent = message;
+  noteWarning.style.display = 'block';
+  setTimeout(() => noteWarning.style.display = 'none', 1500);
+}
+
+
+// Überprüft, ob der Titel oder der Inhalt einer Notiz leer ist.
+// Gibt true zurück, wenn entweder der Titel oder der Inhalt leer ist, andernfalls gibt sie false zurück.
+function isNoteEmpty(title, content) {
+  return !title.trim() || !content.trim();
+}
+
 // =============================================
 // Abschnitt: Funktionen zur Benutzerinteraktion
 // =============================================
 
-// Funktion zum Erstellen der Eingabefelder und des Buttons
+// Funktion zum Erstellen einer Notiz
 function addNote() {
-  let noteTitleInput = document.getElementById("noteTitle"); // Eingabefeld für Titel holen
-  let noteContentInput = document.getElementById("noteContent"); // Eingabefeld für Inhalt holen
-  titles.push(noteTitleInput.value); // Neuen Titel zum Array hinzufügen
-  contents.push(noteContentInput.value); // Neuen Inhalt zum Array hinzufügen
-  displayNotes(); // Funktion 'displayNotes' aufrufen, um die Notizen anzuzeigen
-  save(); // Funktion 'save' aufrufen, um die neuen Daten zu speichern
+  const noteTitleInput = document.getElementById("noteTitle");
+  const noteContentInput = document.getElementById("noteContent");
+
+  const trimmedTitle = noteTitleInput.value.trim();
+  const trimmedContent = noteContentInput.value.trim();
+
+  if (!trimmedTitle || !trimmedContent) {
+    showWarning("Bitte eine Notiz eintragen.");
+    return;
+  }
+
+  titles.push(trimmedTitle);
+  contents.push(trimmedContent);
+  displayNotes();
+  save();
 }
 
 
@@ -150,13 +174,6 @@ function restore(i) {
 // ===========================================
 // Abschnitt: Funktionen zum Rendern der Seite
 // ===========================================
-
-// Funktion zum Erstellen des Headers
-function header() {
-  let headerElement = document.getElementById("header"); // Element mit der ID 'header' holen
-  headerElement.innerHTML = ""; // Inhalt des Headers löschen
-  headerElement.innerHTML += ``; // Neues HTML-Element (H1) zum Header hinzufügen
-}
 
 
 // Funktion zum Erstellen des Footers mit dem aktuellen Jahr
