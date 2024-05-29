@@ -9,12 +9,20 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="header" class="header"></div> <!-- Header-Container -->
-    <div id="addNote" class="addNote"></div> <!-- Container für Eingabefelder und Button -->
+    <div class="header"><h1>NotizBlock</h1></div> <!-- Header-Container -->
+
+    <div id="addNote" class="addNote">
+        <input type="text" placeholder="Titel..." id="noteTitle"> <!-- Eingabefeld für den Titel -->
+        <textarea placeholder="Notiz..." id="noteContent"></textarea> <!-- Eingabefeld für den Inhalt -->
+        <button onclick="addNote()">Add</button> <!-- Button zum Hinzufügen einer Notiz -->
+    </div> <!-- Container für Eingabefelder und Button -->
+
     <div id="notesContainer" class="notesContainer"></div> <!-- Container für Notizen -->
+
     <div id="bin" class="bin"> <!-- Papierkorb-Container -->
         <div id="delNotesContainer" class="delNotesContainer"></div> <!-- Container für gelöschte Notizen -->
     </div>
+
     <div id="footer" class="footer"></div> <!-- Footer-Container -->
 </body>
 </html>
