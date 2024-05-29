@@ -9,30 +9,30 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="header"><h1>NotizBlock</h1></div> <!-- Header-Container -->
+    <div class="header"><h1>NotizBlock</h1></div>
 
     <div id="addNote" class="addNote">
-        <input type="text" placeholder="Titel..." id="noteTitle"> <!-- Eingabefeld für den Titel -->
-        <textarea placeholder="Notiz..." id="noteContent"></textarea> <!-- Eingabefeld für den Inhalt -->
-        <button onclick="addNote()">Add</button> <!-- Button zum Hinzufügen einer Notiz -->
-    </div> <!-- Container für Eingabefelder und Button -->
+        <input type="text" placeholder="Titel..." id="noteTitle">
+        <textarea placeholder="Notiz..." id="noteContent"></textarea>
+        <button onclick="addNote()">Add</button>
+    </div>
 
-    <div id="notesContainer" class="notesContainer"></div> <!-- Container für Notizen -->
+    <div id="notesContainer" class="notesContainer"></div>
 
     <div id="bincontainer" class="bincontainer d-none">
         <img src="cancel.png" alt="cancel symbol" onclick="hideBin()" id="cancel">
-        <div id="bin" class="bin"> <!-- Papierkorb-Container -->
+        <div id="bin" class="bin">
             <div id="delNotesContainer" class="delNotesContainer">
-            </div> <!-- Container für gelöschte Notizen -->
+            </div>
         </div>
     </div>
     <img src="papierkorb.png" alt="Papierkorb" onclick="showBin()" id="papierkorb">
 
-    <div id="noteWarning" class="note-warning" style="display: none;"></div> <!-- Hinweis-Container -->
+    <div id="noteWarning" class="note-warning" style="display: none;"></div>
 
     <div id="footer" class="footer">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
-    </div> <!-- Footer-Container -->
+    </div>
 </body>
 </html>
