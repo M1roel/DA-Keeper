@@ -192,7 +192,6 @@ function hideBin() {
   binElement.classList.add('d-none'); // Klasse 'd-none' hinzufügen, um den Papierkorb auszublenden
 }
 
-
 // ===========================================
 // Abschnitt: Funktionen zum Rendern der Seite
 // ===========================================
@@ -202,7 +201,6 @@ function hideBin() {
 function footer() {
   let footerElement = document.getElementById("footer"); // Element mit der ID 'footer' holen
   let currentYear = new Date().getFullYear(); // Aktuelles Jahr holen
-  footerElement.innerHTML = ""; // Inhalt des Footers löschen
   footerElement.innerHTML += `<p>&copy; Copyright ${currentYear}</p>`; // Copyright-Text mit aktuellem Jahr hinzufügen
 }
 
