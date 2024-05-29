@@ -94,6 +94,7 @@ function bin() {
       <button class="button" onclick="restore(${i})">Restore</button>
     </div>
   `).join('');
+  tempDeleteTitles.length < 1 && hideBin();
 }
 
 
@@ -173,15 +174,18 @@ function restore(i) {
 
 // Funktion zum Anzeigen des Papierkorbinhalts
 function showBin() {
-  console.log("Show");
+  if(tempDeleteTitles.length > 0) {
   const binElement = document.getElementById('bincontainer');
   binElement.classList.remove('d-none');
+  } else {
+    showWarning("Papierkorb ist leer.");
+    return;
+  }
 }
 
 
 // Funktion zum Ausblenden des Papierkorbinhalts
 function hideBin() {
-  console.log("Hide");
   const binElement = document.getElementById('bincontainer');
   binElement.classList.add('d-none');
 }
