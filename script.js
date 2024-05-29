@@ -80,8 +80,19 @@ function displayNotes() {
 }
 
 
+// Funktion zur Generierung des HTML-Codes für eine einzelne Notiz im Papierkorb
+function generateBinNoteHTML(title, content, index) {
+  return `
+      <div class="note">
+          <b class="bin-title">${title}</b><br>
+          <span class="bin-content">${content}</span>
+          <button class="button" onclick="deleteNotePerm(${index})">Delete</button>
+          <button class="button" onclick="restore(${index})">Restore</button>
+      </div>
+  `;
+}
 
-// Funktion um Notizen dem Papierkorb hinzuzufügen
+// Funktion zur Anzeige der Notizen im Papierkorb
 function bin() {
   const binElement = document.getElementById("bin");
   binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
@@ -92,14 +103,10 @@ function bin() {
   delNotesContainer.className = "delNotesContainer";
   binElement.appendChild(delNotesContainer); // delNotesContainer zum bin hinzufügen
 
-  delNotesContainer.innerHTML = tempDeleteTitles.map((title, i) => `
-    <div class="note">
-      <b class="bin-title">${title}</b><br>
-      <span class="bin-content">${tempDeleteContents[i]}</span>
-      <button class="button" onclick="deleteNotePerm(${i})">Delete</button>
-      <button class="button" onclick="restore(${i})">Restore</button>
-    </div>
-  `).join('');
+  delNotesContainer.innerHTML = tempDeleteTitles.map((title, i) => 
+      generateBinNoteHTML(title, tempDeleteContents[i], i)
+  ).join('');
+
   tempDeleteTitles.length < 1 && hideBin();
 }
 
