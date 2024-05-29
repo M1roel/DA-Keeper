@@ -55,24 +55,30 @@ function saveDel() {
 }
 
 
-// Funktion zum Anzeigen der Notizen
+// Funktion zur Generierung des HTML-Codes für eine einzelne Notiz
+function generateNoteHTML(noteTitle, noteContent, index) {
+  return `
+      <div class="note">
+          <b class="note-title">${noteTitle}</b><br>
+          <span class="note-content">${noteContent}</span>
+          <button class="button" onclick="deleteNoteTemp(${index})">x</button>
+      </div>
+  `;
+}
+
+// Funktion zur Anzeige der Notizen im Container
 function displayNotes() {
   let notesContainer = document.getElementById("notesContainer"); // Element mit der ID 'notesContainer' holen
   notesContainer.innerHTML = ""; // Inhalt des Elements löschen
 
   for (let i = 0; i < titles.length; i++) {
-    // Schleife durch alle Titel
-    const noteTitle = titles[i]; // Titel aus dem Array holen
-    const noteContent = contents[i]; // Inhalt aus dem Array holen
-    notesContainer.innerHTML += `
-            <div class="note">
-                <b class="note-title">${noteTitle}</b><br>
-                <span class="note-content">${noteContent}</span>
-                <button class="button" onclick="deleteNoteTemp(${i})">x</button>
-            </div>
-        `; // Notiz zum Container hinzufügen
+      // Schleife durch alle Titel
+      const noteTitle = titles[i]; // Titel aus dem Array holen
+      const noteContent = contents[i]; // Inhalt aus dem Array holen
+      notesContainer.innerHTML += generateNoteHTML(noteTitle, noteContent, i); // Notiz zum Container hinzufügen
   }
 }
+
 
 
 // Funktion um Notizen dem Papierkorb hinzuzufügen
