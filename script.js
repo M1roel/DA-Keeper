@@ -77,7 +77,6 @@ function displayNotes() {
 
 // Funktion um Notizen dem Papierkorb hinzuzufügen
 function bin() {
-  console.log("bin function called"); // Debugging
   const binElement = document.getElementById("bin");
   binElement.innerHTML = ""; // Inhalt des Papierkorbs löschen
 
@@ -169,6 +168,11 @@ function restore(i) {
   save(); // Funktion 'save' aufrufen, um die aktualisierten Daten zu speichern
   saveDel(); // Funktion 'saveDel' aufrufen, um die aktualisierten Daten zu speichern
   bin(); // Funktion 'bin' aufrufen, um die aktualisierten Daten zu speichern
+}
+
+function showBin() {
+  const binElement = document.getElementById('bin');
+  binElement.classList.remove('d-none');
 }
 
 // ===========================================

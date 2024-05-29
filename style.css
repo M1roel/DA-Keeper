@@ -116,17 +116,20 @@ button {
   display: none;
 }
 
+.d-none {
+  display: none;
+}
 
-.bin {
+.delNotesContainer {
   display: flex;
-  background-color: #eee;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   padding: 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   position: fixed;
-  bottom: 70px;
-  right: 0;
-  left: 0;
 }
 
 .bin-note {
@@ -165,4 +168,11 @@ button {
   bottom: 0;
   margin: auto -16px;
   padding: 16px 32px;
+}
+
+#papierkorb {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  cursor: pointer;
 }
