@@ -170,9 +170,20 @@ function restore(i) {
   bin(); // Funktion 'bin' aufrufen, um die aktualisierten Daten zu speichern
 }
 
+
+// Funktion zum Anzeigen des Papierkorbinhalts
 function showBin() {
-  const binElement = document.getElementById('bin');
+  console.log("Show");
+  const binElement = document.getElementById('bincontainer');
   binElement.classList.remove('d-none');
+}
+
+
+// Funktion zum Ausblenden des Papierkorbinhalts
+function hideBin() {
+  console.log("Hide");
+  const binElement = document.getElementById('bincontainer');
+  binElement.classList.add('d-none');
 }
 
 // ===========================================

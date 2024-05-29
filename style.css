@@ -112,7 +112,7 @@ button {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 997;
   display: none;
 }
 
@@ -120,16 +120,26 @@ button {
   display: none;
 }
 
+.bincontainer {
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: auto;
+  position: fixed;
+}
+
+
 .delNotesContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   padding: 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  position: fixed;
 }
 
 .bin-note {
@@ -175,4 +185,10 @@ button {
   bottom: 60px;
   right: 20px;
   cursor: pointer;
+}
+
+#cancel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }

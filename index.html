@@ -19,10 +19,13 @@
 
     <div id="notesContainer" class="notesContainer"></div> <!-- Container für Notizen -->
 
-    <div id="bin" class="bin, d-none"> <!-- Papierkorb-Container -->
-        <div id="delNotesContainer" class="delNotesContainer"></div> <!-- Container für gelöschte Notizen -->
+    <div id="bincontainer" class="bincontainer d-none">
+        <img src="cancel.png" alt="cancel symbol" onclick="hideBin()" id="cancel">
+        <div id="bin" class="bin"> <!-- Papierkorb-Container -->
+            <div id="delNotesContainer" class="delNotesContainer">
+            </div> <!-- Container für gelöschte Notizen -->
+        </div>
     </div>
-
     <img src="papierkorb.png" alt="Papierkorb" onclick="showBin()" id="papierkorb">
 
     <div id="noteWarning" class="note-warning" style="display: none;"></div> <!-- Hinweis-Container -->
