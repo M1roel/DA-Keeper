@@ -2,14 +2,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Impressum</title>
+    <title>Datenschutz</title>
     <link rel="icon" type="image/png" href="notepad-fav.png" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <script src="w3c.js" defer></script>
   </head>
-  <body>
-    <div class="header"><h1>NotizBlock</h1></div>
-    <!-- Header-Container -->
+  <body onload="includeHTML()">
+
+    <div w3-include-html="templates/header.html"></div>
+
     <div class="impressum">
       <p>
         Impressum<br /><br />
@@ -23,10 +25,8 @@
         E-Mail: peter.pfautsch@example.com
       </p>
     </div>
-    <div id="footer" class="footer">
-      <a href="index.html">Neue Notiz</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-    <!-- Footer-Container -->
+    
+    <div w3-include-html="templates/footer.html"></div>
+
   </body>
 </html>

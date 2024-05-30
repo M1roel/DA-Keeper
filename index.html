@@ -7,15 +7,10 @@
     <link rel="icon" type="image/png" href="notepad-fav.png" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <script src="w3c.js" defer></script>
   </head>
-  <body>
-    <div class="header">
-      <h1>NotizBlock</h1>
-      <div class="icons">
-        <img src="papierkorb.png" alt="Papierkorb" onclick="showBin()" id="papierkorb"/>
-        <img src="cancel.png" alt="cancel symbol" onclick="hideBin()" id="cancel"/>
-      </div>
-    </div>
+  <body onload="includeHTML()">
+    <div w3-include-html="templates/header.html"></div>
 
     <div class="newNote">
       <div id="addNote" class="addNote">
@@ -31,9 +26,6 @@
 
     <div id="noteWarning" class="note-warning d-none"></div>
 
-    <div id="footer" class="footer">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
+    <div w3-include-html="templates/footer.html"></div>
   </body>
 </html>

@@ -6,10 +6,12 @@
     <link rel="icon" type="image/png" href="notepad-fav.png" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <script src="w3c.js" defer></script>
   </head>
-  <body>
-    <div class="header"><h1>NotizBlock</h1></div>
-    <!-- Header-Container -->
+  <body onload="includeHTML()">
+
+    <div w3-include-html="templates/header.html"></div>
+
     <div class="datenschutz">
       <h2>Datenschutzerklärung</h2>
 
@@ -76,10 +78,8 @@
         Pfautsch.
       </p>
     </div>
-    <div id="footer" class="footer">
-      <a href="index.html">Neue Notiz</a>
-      <a href="impressum.html">Impressum</a>
-    </div>
-    <!-- Footer-Container -->
+
+    <div w3-include-html="templates/footer.html"></div>
+
   </body>
 </html>
