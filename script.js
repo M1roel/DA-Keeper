@@ -70,17 +70,12 @@ function generateBinNoteHTML(title, content, index) {
 }
 
 function bin() {
-  const binElement = document.getElementById("bin");
+  const binElement = document.getElementById("bincontainer");
   binElement.innerHTML = "";
 
-  const delNotesContainer = document.createElement("div");
-  delNotesContainer.id = "delNotesContainer";
-  delNotesContainer.className = "delNotesContainer";
-  binElement.appendChild(delNotesContainer);
-
-  delNotesContainer.innerHTML = tempDeleteTitles.map((title, i) => 
-      generateBinNoteHTML(title, tempDeleteContents[i], i)
-  ).join('');
+  bincontainer.innerHTML = tempDeleteTitles
+    .map((title, i) => generateBinNoteHTML(title, tempDeleteContents[i], i))
+    .join("");
 
   tempDeleteTitles.length < 1 && hideBin();
 }
@@ -88,12 +83,19 @@ function bin() {
 function showWarning(message) {
   const noteWarning = document.getElementById("noteWarning");
   noteWarning.textContent = message;
-  noteWarning.style.display = 'block';
-  setTimeout(() => noteWarning.style.display = 'none', 1500);
+  noteWarning.classList.remove('d-none');
+  setTimeout(() => (noteWarning.classList.add('d-none')), 1500);
 }
 
 function isNoteEmpty(title, content) {
   return !title.trim() || !content.trim();
+}
+
+function clearNote() {
+  const title = document.getElementById('noteTitle');
+  const content = document.getElementById('noteContent');
+  title.value = "";
+  content.value = "";
 }
 
 function addNote() {
@@ -112,6 +114,7 @@ function addNote() {
   contents.push(trimmedContent);
   displayNotes();
   save();
+  clearNote();
 }
 
 function deleteNoteTemp(i) {
@@ -144,9 +147,13 @@ function restore(i) {
 }
 
 function showBin() {
-  if(tempDeleteTitles.length > 0) {
-    const binElement = document.getElementById('bincontainer');
-    binElement.classList.remove('d-none');
+  if (tempDeleteTitles.length > 0) {
+    const binElement = document.getElementById("bincontainer");
+    const noteElement = document.getElementById("notesContainer");
+    const addElement = document.getElementById("addNote");
+    binElement.classList.remove("d-none");
+    noteElement.classList.add("d-none");
+    addElement.classList.add("d-none");
   } else {
     showWarning("Papierkorb ist leer.");
     return;
@@ -154,8 +161,12 @@ function showBin() {
 }
 
 function hideBin() {
-  const binElement = document.getElementById('bincontainer');
-  binElement.classList.add('d-none');
+  const binElement = document.getElementById("bincontainer");
+  const noteElement = document.getElementById("notesContainer");
+  const addElement = document.getElementById("addNote");
+  binElement.classList.add("d-none");
+  noteElement.classList.remove("d-none");
+  addElement.classList.remove("d-none");
 }
 
 function footer() {

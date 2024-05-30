@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NotizBlock</title>
-    <link rel="icon" type="image/png" href="notepad-fav.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="notepad-fav.png" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
-    <div class="header"><h1>NotizBlock</h1></div>
+  </head>
+  <body>
+    <div class="header">
+      <h1>NotizBlock</h1>
+      <div class="icons">
+        <img src="papierkorb.png" alt="Papierkorb" onclick="showBin()" id="papierkorb"/>
+        <img src="cancel.png" alt="cancel symbol" onclick="hideBin()" id="cancel"/>
+      </div>
+    </div>
 
     <div id="addNote" class="addNote">
-        <input type="text" placeholder="Titel..." id="noteTitle">
-        <textarea placeholder="Notiz..." id="noteContent"></textarea>
-        <button onclick="addNote()">Add</button>
+      <input type="text" placeholder="Titel..." id="noteTitle" />
+      <textarea placeholder="Notiz..." id="noteContent"></textarea>
+      <button onclick="addNote()">Add</button>
     </div>
 
     <div id="notesContainer" class="notesContainer"></div>
 
-    <div id="bincontainer" class="bincontainer d-none">
-        <img src="cancel.png" alt="cancel symbol" onclick="hideBin()" id="cancel">
-        <div id="bin" class="bin">
-            <div id="delNotesContainer" class="delNotesContainer">
-            </div>
-        </div>
-    </div>
-    <img src="papierkorb.png" alt="Papierkorb" onclick="showBin()" id="papierkorb">
+    <div id="bincontainer" class="bincontainer d-none"></div>
 
-    <div id="noteWarning" class="note-warning" style="display: none;"></div>
+    <div id="noteWarning" class="note-warning d-none"></div>
 
     <div id="footer" class="footer">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
     </div>
-</body>
+  </body>
 </html>
