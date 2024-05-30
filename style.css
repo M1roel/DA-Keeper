@@ -82,6 +82,12 @@ button {
   cursor: pointer;
 }
 
+.newNote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .notesContainer {
   display: flex;
   justify-content: center;
