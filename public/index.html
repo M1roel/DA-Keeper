@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NotizBlock</title>
-    <link rel="icon" type="image/png" href="notepad-fav.png" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-    <script src="w3c.js" defer></script>
+    <link rel="icon" type="image/png" href="/public/img/notepad-fav.png" />
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <script src="../src/js/script.js" defer></script>
+    <script src="../src/js/w3c.js" defer></script>
   </head>
   <body onload="includeHTML()">
-    <div w3-include-html="templates/header.html"></div>
+    <div w3-include-html="../templates/header.html"></div>
 
     <div class="newNote">
       <div id="addNote" class="addNote">
@@ -26,6 +26,6 @@
 
     <div id="noteWarning" class="note-warning d-none"></div>
 
-    <div w3-include-html="templates/footer.html"></div>
+    <div w3-include-html="../templates/footer.html"></div>
   </body>
 </html>

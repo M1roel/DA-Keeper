@@ -169,18 +169,18 @@ function hideBin() {
   addElement.classList.remove("d-none");
 }
 
-function footer() {
-  let footerElement = document.getElementById("footer");
-  let currentYear = new Date().getFullYear();
-  footerElement.innerHTML += `<p>&copy; Copyright ${currentYear}</p>`;
-}
+// function footer() {
+//   let footerElement = document.getElementById("footer");
+//   let currentYear = new Date().getFullYear();
+//   footerElement.innerHTML += `<p>&copy; Copyright ${currentYear}</p>`;
+// }
 
 function render() {
   load();
   loadDel();
   displayNotes();
   bin();
-  footer();
+  // footer();
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
