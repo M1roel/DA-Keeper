@@ -49,6 +49,10 @@ function generateNoteHTML(noteTitle, noteContent, index) {
 
 function displayNotes() {
   let notesContainer = document.getElementById("notesContainer");
+  if (!notesContainer) {
+    console.error("Element with ID 'notesContainer' not found.");
+    return;
+  }
   notesContainer.innerHTML = "";
 
   for (let i = 0; i < titles.length; i++) {
@@ -73,7 +77,7 @@ function bin() {
   const binElement = document.getElementById("bincontainer");
   binElement.innerHTML = "";
 
-  bincontainer.innerHTML = tempDeleteTitles
+  binElement.innerHTML = tempDeleteTitles
     .map((title, i) => generateBinNoteHTML(title, tempDeleteContents[i], i))
     .join("");
 
@@ -169,20 +173,16 @@ function hideBin() {
   addElement.classList.remove("d-none");
 }
 
-// function footer() {
-//   let footerElement = document.getElementById("footer");
-//   let currentYear = new Date().getFullYear();
-//   footerElement.innerHTML += `<p>&copy; Copyright ${currentYear}</p>`;
-// }
-
 function render() {
   load();
   loadDel();
   displayNotes();
   bin();
-  // footer();
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
   render();
+  if (document.getElementById("bin")) {
+    bin();
+  }
 });
