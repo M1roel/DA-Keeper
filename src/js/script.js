@@ -123,7 +123,6 @@ function deleteNoteTemp(i) {
   displayNotes();
   save();
   saveDel();
-  bin();
 }
 
 function deleteNotePerm(i) {
@@ -138,7 +137,6 @@ function restore(i) {
   contents.push(tempDeleteContents[i]);
   tempDeleteTitles.splice(i, 1);
   tempDeleteContents.splice(i, 1);
-  displayNotes();
   save();
   saveDel();
   bin();
