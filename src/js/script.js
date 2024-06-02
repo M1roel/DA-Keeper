@@ -49,10 +49,6 @@ function generateNoteHTML(noteTitle, noteContent, index) {
 
 function displayNotes() {
   let notesContainer = document.getElementById("notesContainer");
-  if (!notesContainer) {
-    console.error("Element with ID 'notesContainer' not found.");
-    return;
-  }
   notesContainer.innerHTML = "";
 
   for (let i = 0; i < titles.length; i++) {
@@ -75,10 +71,6 @@ function generateBinNoteHTML(title, content, index) {
 
 function bin() {
   let binContainer = document.getElementById("bincontainer");
-  if (!binContainer) {
-    console.error("Element with ID 'bincontainer' not found.");
-    return;
-  }
   binContainer.innerHTML = "";
 
   binContainer.innerHTML = tempDeleteTitles
