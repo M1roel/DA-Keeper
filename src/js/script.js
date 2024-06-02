@@ -74,15 +74,20 @@ function generateBinNoteHTML(title, content, index) {
 }
 
 function bin() {
-  const binElement = document.getElementById("bincontainer");
-  binElement.innerHTML = "";
+  let binContainer = document.getElementById("bincontainer");
+  if (!binContainer) {
+    console.error("Element with ID 'bincontainer' not found.");
+    return;
+  }
+  binContainer.innerHTML = "";
 
-  binElement.innerHTML = tempDeleteTitles
+  binContainer.innerHTML = tempDeleteTitles
     .map((title, i) => generateBinNoteHTML(title, tempDeleteContents[i], i))
     .join("");
 
-  tempDeleteTitles.length < 1 && hideBin();
+  // tempDeleteTitles.length < 1 && hideBin();
 }
+
 
 function showWarning(message) {
   const noteWarning = document.getElementById("noteWarning");
@@ -151,38 +156,35 @@ function restore(i) {
 }
 
 function showBin() {
-  if (tempDeleteTitles.length > 0) {
-    const binElement = document.getElementById("bincontainer");
-    const noteElement = document.getElementById("notesContainer");
-    const addElement = document.getElementById("addNote");
-    binElement.classList.remove("d-none");
-    noteElement.classList.add("d-none");
-    addElement.classList.add("d-none");
-  } else {
+  if (tempDeleteTitles.length == 0) {
     showWarning("Papierkorb ist leer.");
-    return;
+    return false;
   }
+  return true;
 }
 
-function hideBin() {
-  const binElement = document.getElementById("bincontainer");
-  const noteElement = document.getElementById("notesContainer");
-  const addElement = document.getElementById("addNote");
-  binElement.classList.add("d-none");
-  noteElement.classList.remove("d-none");
-  addElement.classList.remove("d-none");
-}
+// function hideBin() {
+//   const binElement = document.getElementById("bincontainer");
+//   const noteElement = document.getElementById("notesContainer");
+//   const addElement = document.getElementById("addNote");
+//   binElement.classList.add("d-none");
+//   noteElement.classList.remove("d-none");
+//   addElement.classList.remove("d-none");
+// }
 
 function render() {
   load();
   loadDel();
-  displayNotes();
-  bin();
+  
+  const path = window.location.pathname;
+  
+  if (path.includes("index.html")) {
+    displayNotes();
+  } else if (path.includes("papierkorb.html")) {
+    bin();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
   render();
-  if (document.getElementById("bin")) {
-    bin();
-  }
 });

@@ -140,15 +140,14 @@ button {
   display: none;
 }
 
-.bincontainer {
-  z-index: 999;
+.bin {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: auto;
   height: auto;
   margin-bottom: 80px;
-  position: fixed;
 }
 
 .bin-note {
