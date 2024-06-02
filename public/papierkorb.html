@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Papierkorb</title>
-  <link rel="icon" type="image/png" href="/public/img/notepad-fav.png" />
-  <link rel="stylesheet" href="../src/css/style.css" />
-  <script src="../src/js/script.js" defer></script>
-  <script src="../src/js/w3c.js" defer></script>
-</head>
-<body onload="includeHTML()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Papierkorb</title>
+    <link rel="icon" type="image/png" href="/public/img/notepad-fav.png" />
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <script src="../src/js/script.js" defer></script>
+    <script src="../src/js/w3c.js" defer></script>
+  </head>
+  <body onload="includeHTML()">
+    <div w3-include-html="../templates/header.html"></div>
 
-  <div w3-include-html="../templates/header.html"></div>
+    <div id="bincontainer" class="bincontainer"></div>
 
-  <div id="bincontainer" class="bin-container"></div>
-
-  <div w3-include-html="../templates/footer.html"></div>
-</body>
+    <div w3-include-html="../templates/footer.html"></div>
+  </body>
 </html>

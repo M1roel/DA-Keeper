@@ -84,16 +84,13 @@ function bin() {
   binContainer.innerHTML = tempDeleteTitles
     .map((title, i) => generateBinNoteHTML(title, tempDeleteContents[i], i))
     .join("");
-
-  // tempDeleteTitles.length < 1 && hideBin();
 }
-
 
 function showWarning(message) {
   const noteWarning = document.getElementById("noteWarning");
   noteWarning.textContent = message;
-  noteWarning.classList.remove('d-none');
-  setTimeout(() => (noteWarning.classList.add('d-none')), 1500);
+  noteWarning.classList.remove("d-none");
+  setTimeout(() => noteWarning.classList.add("d-none"), 1500);
 }
 
 function isNoteEmpty(title, content) {
@@ -101,8 +98,8 @@ function isNoteEmpty(title, content) {
 }
 
 function clearNote() {
-  const title = document.getElementById('noteTitle');
-  const content = document.getElementById('noteContent');
+  const title = document.getElementById("noteTitle");
+  const content = document.getElementById("noteContent");
   title.value = "";
   content.value = "";
 }
@@ -155,29 +152,20 @@ function restore(i) {
   bin();
 }
 
-function showBin() {
-  if (tempDeleteTitles.length == 0) {
-    showWarning("Papierkorb ist leer.");
-    return false;
-  }
-  return true;
-}
-
-// function hideBin() {
-//   const binElement = document.getElementById("bincontainer");
-//   const noteElement = document.getElementById("notesContainer");
-//   const addElement = document.getElementById("addNote");
-//   binElement.classList.add("d-none");
-//   noteElement.classList.remove("d-none");
-//   addElement.classList.remove("d-none");
+// function showBin() {
+//   if (tempDeleteTitles.length == 0) {
+//     showWarning("Papierkorb ist leer.");
+//     return false;
+//   }
+//   return true;
 // }
 
 function render() {
   load();
   loadDel();
-  
+
   const path = window.location.pathname;
-  
+
   if (path.includes("index.html")) {
     displayNotes();
   } else if (path.includes("papierkorb.html")) {

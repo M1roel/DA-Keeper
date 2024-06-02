@@ -140,7 +140,7 @@ button {
   display: none;
 }
 
-.bin {
+.bincontainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,7 +193,8 @@ button {
   text-decoration: none;
 }
 
-#papierkorb, #cancel{
+#papierkorb,
+#cancel {
   cursor: pointer;
   width: 35px;
 }
@@ -203,7 +204,7 @@ button {
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 20px;
   margin-top: 30px;
 }
@@ -213,9 +214,15 @@ button {
   justify-content: center;
   flex-direction: column;
   width: 90%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 20px;
   margin: 70px;
+}
+
+@media (max-width: 180px) {
+  .header h1 {
+    font-size: 18px !important;
+  }
 }
 
 @media (max-width: 400px) {
